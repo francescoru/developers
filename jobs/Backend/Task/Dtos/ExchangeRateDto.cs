@@ -1,8 +1,11 @@
-﻿namespace ExchangeRateUpdater
+﻿using System;
+using Core.Entities;
+
+namespace ExchangeRateUpdater.Dtos
 {
-    public class ExchangeRate
+    public class ExchangeRateDto
     {
-        public ExchangeRate(Currency sourceCurrency, Currency targetCurrency, decimal value)
+        public ExchangeRateDto(Currency sourceCurrency, Currency targetCurrency, decimal value)
         {
             SourceCurrency = sourceCurrency;
             TargetCurrency = targetCurrency;
@@ -17,7 +20,7 @@
 
         public override string ToString()
         {
-            return $"{SourceCurrency}/{TargetCurrency}={Value}";
+            return $"{SourceCurrency}/{TargetCurrency}={String.Format("{0:n0}", Value)}";
         }
     }
 }
